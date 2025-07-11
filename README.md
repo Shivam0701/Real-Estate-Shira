@@ -87,12 +87,6 @@ Made with 💙, ☕, and a lot of console.log()s
 - 📧 [Email Me](mailto:shivamraj.0110@gmail.com)
 
 ```
-📸 UI Sneak Peek (Optional)
-You can add screenshots here using the markdown image tag
 
-md
-Copy
-Edit
-![Homepage Screenshot](./src/assets/images/home.png)
 📄 License
 This project is open-source and available under the MIT License.
