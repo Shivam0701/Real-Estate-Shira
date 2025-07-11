@@ -12,7 +12,7 @@ import { BiPlus } from 'react-icons/bi';
 import { motion } from 'framer-motion';
 
 import { bannerData } from '../data';
-import Apartment6Lg from '../assets/images/Banner2.png'; 
+import Apartment6Lg from '../assets/images/banner2.png'; 
 import Apartment1Lg from '../assets/images/houseBanner.jpg';
 
 
