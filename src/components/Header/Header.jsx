@@ -6,7 +6,6 @@ import {
   chakra,
   ButtonGroup,
   useBreakpointValue,
-  Box,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import NavMobile from './NavMobile';
@@ -17,35 +16,21 @@ const Header = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Features', path: '/features' },
-    { name: 'About Us', path: '/aboutUs' },
+    { name: 'About Us', path: '/about-us' },
   ];
 
   return (
-    <chakra.header
-      id="header"
-      borderBottom="1px"
-      borderColor="gray.700"
-      bg="gray.900"
-      color="white"
-      px={{ base: 4, md: 8 }}
-      py={4}
-      boxShadow="sm"
-      position="sticky"
-      top="0"
-      zIndex="100"
-    >
-      <Flex align="center" justify="space-between" wrap="wrap">
-        {/* Logo */}
+    <chakra.header id="header" borderBottom="1px solid" borderColor="white" px={6}>
+      <Flex w="100%" py="5" align="center" justify="space-between">
         <Link to="/">
-          <Heading fontSize="2xl" fontFamily="cursive" color="teal.300">
+          <Heading fontSize="3xl" fontFamily="cursive" color="gray.50">
             ShiRa
           </Heading>
         </Link>
 
-        {/* Desktop Navigation */}
         {isDesktop ? (
-          <HStack spacing={6}>
-            <ButtonGroup as="nav" variant="link" spacing="4">
+          <>
+            <ButtonGroup as="nav" variant="link" spacing="5">
               {navLinks.map(({ name, path }) => (
                 <Button
                   key={name}
@@ -53,7 +38,7 @@ const Header = () => {
                   to={path}
                   fontSize="16px"
                   color="gray.100"
-                  _hover={{ color: 'white', textDecoration: 'underline' }}
+                  _hover={{ textDecoration: 'underline', color: 'white' }}
                 >
                   {name}
                 </Button>
@@ -65,6 +50,7 @@ const Header = () => {
                 as={Link}
                 to="/contact"
                 size="sm"
+                variant="solid"
                 colorScheme="blue"
               >
                 Contact
@@ -78,13 +64,19 @@ const Header = () => {
               >
                 Sign up
               </Button>
+              <Button
+                as={Link}
+                to="/login"
+                size="sm"
+                variant="outline"
+                colorScheme="gray"
+              >
+                Sign in
+              </Button>
             </HStack>
-          </HStack>
+          </>
         ) : (
-          // Mobile nav drawer
-          <Box>
-            <NavMobile />
-          </Box>
+          <NavMobile />
         )}
       </Flex>
     </chakra.header>
