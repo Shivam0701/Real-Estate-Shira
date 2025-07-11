@@ -1,64 +1,52 @@
 import { useRef } from 'react';
 import {
-  Button,
-  VStack,
-  Drawer,
-  DrawerBody,
-  DrawerCloseButton,
-  DrawerContent,
-  DrawerHeader,
-  DrawerOverlay,
-  IconButton,
-  useDisclosure,
-  Center,
+  VStack, Drawer, DrawerBody, DrawerCloseButton, DrawerContent,
+  DrawerHeader, DrawerOverlay, IconButton, Button, useDisclosure, Center
 } from '@chakra-ui/react';
 import { FiMenu } from 'react-icons/fi';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const NavMobile = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
 
+  const navLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'Features', path: '/features' },
+    { name: 'About Us', path: '/aboutUs' },
+    { name: 'Contact', path: '/contact' },
+    { name: 'Sign In', path: '/signin' },
+    { name: 'Sign Up', path: '/signup' },
+  ];
+
   return (
     <>
       <IconButton
         variant="ghost"
-        icon={<FiMenu fontSize="1.5rem" />}
+        icon={<FiMenu fontSize="1.35rem" />}
         aria-label="Open Menu"
         onClick={onOpen}
         ref={btnRef}
-        color="white"
-        _hover={{ bg: 'gray.700' }}
       />
       <Drawer isOpen={isOpen} placement="right" onClose={onClose} finalFocusRef={btnRef}>
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
           <Center>
-            <DrawerHeader pt={8} fontSize="xl">Menu</DrawerHeader>
+            <DrawerHeader>Menu</DrawerHeader>
           </Center>
-
-          <DrawerBody px={10} mt={6}>
-            <VStack spacing={6} align="start">
-              {[
-                { label: 'Home', to: '/' },
-                { label: 'Features', to: '/features' },
-                { label: 'About Us', to: '/about' },
-                { label: 'Contact', to: '/contact' },
-                { label: 'Sign In', to: '/signin' },
-                { label: 'Sign Up', to: '/signup' },
-              ].map((item) => (
+          <DrawerBody px="14" mt="4">
+            <VStack as="nav" spacing="6" alignItems="flex-start">
+              {navLinks.map((link) => (
                 <Button
-                  as={RouterLink}
-                  to={item.to}
+                  as={Link}
+                  to={link.path}
                   variant="ghost"
                   size="lg"
-                  w="100%"
-                  justifyContent="flex-start"
-                  fontWeight="medium"
-                  key={item.label}
+                  key={link.name}
+                  onClick={onClose} // <-- closes drawer on click
                 >
-                  {item.label}
+                  {link.name}
                 </Button>
               ))}
             </VStack>
@@ -70,3 +58,4 @@ const NavMobile = () => {
 };
 
 export default NavMobile;
+
