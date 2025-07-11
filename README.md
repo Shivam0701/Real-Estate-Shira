@@ -18,7 +18,7 @@ Welcome to **ShiRa**, your one-stop platform for finding beautiful homes across 
 
 ## ✨ Demo
 
-> 🌍 [Live Demo on Vercel](https://react-estate-shira.vercel.app)
+> 🌍 [Live Demo on Vercel](https://real-estate-shira.vercel.app/)
 
 ---
 
