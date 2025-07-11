@@ -1,4 +1,3 @@
-// App.jsx
 import { Routes, Route } from 'react-router-dom';
 import { Box } from '@chakra-ui/react';
 
@@ -11,9 +10,9 @@ import PropertyDetails from './routes/PropertyDetails';
 import HouseDetails from './components/PropertyDetails/HouseDetails';
 import Contact from './routes/Contact';
 import Signup from './routes/Signup';
-import Features from './routes/Features';
 import Login from './routes/Login';
-import AboutUs from './routes/AboutUs'; // ✅ CASE SENSITIVE
+import Features from './routes/Features';
+import AboutUs from './routes/AboutUs'; // 🔥 Make sure file is named exactly AboutUs.jsx
 
 const App = () => {
   return (
@@ -31,7 +30,9 @@ const App = () => {
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route path="/features" element={<Features />} />
-            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/about-us" element={<AboutUs />} /> {/* ✅ Correct route */}
+
+            {/* fallback */}
             <Route
               path="*"
               element={
