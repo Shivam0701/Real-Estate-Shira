@@ -40,10 +40,10 @@ Welcome to **ShiRa**, your one-stop platform for finding beautiful homes across 
 
 ```bash
 # Clone the project
-git clone https://github.com/Shivam0701/React-Estate-Shira.git
+git clone https://github.com/Shivam0701/Real-Estate-Shira.git
 
 # Go inside the project
-cd React-Estate-Shira
+cd Real-Estate-Shira
 
 # Install dependencies
 npm install
