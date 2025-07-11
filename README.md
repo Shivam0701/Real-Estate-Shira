@@ -75,9 +75,11 @@ Want to add login/signup backend or map integration? Let's collaborate!
 Shivam Raj
 Made with 💙, ☕ and a lot of console.log()s
 
-📬 Contact Me
-LinkedIn : https://www.linkedin.com/in/shivam-raj-0701sr/
+## 📬 Contact Me
 
-GitHub : https://github.com/Shivam0701
+🔗 [LinkedIn](https://www.linkedin.com/in/shivam-raj-0701sr/)
 
-Email: shivamraj.0110@gmail.com
+🐙 [GitHub](https://github.com/Shivam0701)
+
+📧 [Email Me](mailto:shivamraj.0110@gmail.com)
+
