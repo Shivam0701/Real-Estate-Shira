@@ -6,6 +6,7 @@ import {
   chakra,
   ButtonGroup,
   useBreakpointValue,
+  Box,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import NavMobile from './NavMobile';
@@ -13,27 +14,38 @@ import NavMobile from './NavMobile';
 const Header = () => {
   const isDesktop = useBreakpointValue({ base: false, lg: true });
 
-  // Correct route paths here
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Features', path: '/features' },
-    { name: 'About Us', path: '/aboutUs' }, 
+    { name: 'About Us', path: '/aboutUs' },
   ];
 
   return (
-    <chakra.header id="header" borderBottom="1px solid" borderColor="white">
-      <Flex w="100%" py="5" align="center" justify="space-between">
-        {/* Logo / Brand */}
+    <chakra.header
+      id="header"
+      borderBottom="1px"
+      borderColor="gray.700"
+      bg="gray.900"
+      color="white"
+      px={{ base: 4, md: 8 }}
+      py={4}
+      boxShadow="sm"
+      position="sticky"
+      top="0"
+      zIndex="100"
+    >
+      <Flex align="center" justify="space-between" wrap="wrap">
+        {/* Logo */}
         <Link to="/">
-          <Heading fontSize="3xl" fontFamily="cursive" color="gray.50">
+          <Heading fontSize="2xl" fontFamily="cursive" color="teal.300">
             ShiRa
           </Heading>
         </Link>
 
-        {/* Desktop Nav */}
+        {/* Desktop Navigation */}
         {isDesktop ? (
-          <>
-            <ButtonGroup as="nav" variant="link" spacing="5">
+          <HStack spacing={6}>
+            <ButtonGroup as="nav" variant="link" spacing="4">
               {navLinks.map(({ name, path }) => (
                 <Button
                   key={name}
@@ -41,20 +53,18 @@ const Header = () => {
                   to={path}
                   fontSize="16px"
                   color="gray.100"
-                  _hover={{ textDecoration: 'underline', color: 'white' }}
+                  _hover={{ color: 'white', textDecoration: 'underline' }}
                 >
                   {name}
                 </Button>
               ))}
             </ButtonGroup>
 
-            {/* Right Buttons */}
             <HStack spacing="3">
               <Button
                 as={Link}
                 to="/contact"
                 size="sm"
-                variant="solid"
                 colorScheme="blue"
               >
                 Contact
@@ -69,9 +79,12 @@ const Header = () => {
                 Sign up
               </Button>
             </HStack>
-          </>
+          </HStack>
         ) : (
-          <NavMobile />
+          // Mobile nav drawer
+          <Box>
+            <NavMobile />
+          </Box>
         )}
       </Flex>
     </chakra.header>
