@@ -1,3 +1,4 @@
+// App.jsx
 import { Routes, Route } from 'react-router-dom';
 import { Box } from '@chakra-ui/react';
 
@@ -12,31 +13,25 @@ import Contact from './routes/Contact';
 import Signup from './routes/Signup';
 import Features from './routes/Features';
 import Login from './routes/Login';
-import AboutUs from './routes/AboutUs';
+import AboutUs from './routes/AboutUs'; // ✅ CASE SENSITIVE
 
 const App = () => {
   return (
     <HouseProvider>
       <Box minH="100vh" display="flex" flexDirection="column" bg="gray.900">
-        {/* Header stays on top */}
         <Header />
 
-        {/* Main content area */}
         <Box as="main" flex="1" px={{ base: 4, md: 10 }} w="100%">
           <Routes>
             <Route path="/" element={<Home />} />
-            
             <Route path="/property-details" element={<PropertyDetails />}>
               <Route path=":propertyId" element={<HouseDetails />} />
             </Route>
-
-            <Route path="/features" element={<Features />} />
-            <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
-
-            {/* Fallback for undefined routes */}
+            <Route path="/features" element={<Features />} />
+            <Route path="/about-us" element={<AboutUs />} />
             <Route
               path="*"
               element={
@@ -48,7 +43,6 @@ const App = () => {
           </Routes>
         </Box>
 
-        {/* Footer always at bottom */}
         <Footer />
       </Box>
     </HouseProvider>
