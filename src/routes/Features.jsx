@@ -3,86 +3,126 @@ import {
   Heading,
   Text,
   SimpleGrid,
-  VStack,
+  Stack,
   Icon,
+  Image,
   useColorModeValue,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import { FaHome, FaSearchLocation, FaHeadset, FaMapMarkedAlt, FaFilter, FaCheckCircle } from 'react-icons/fa';
+import {
+  FaShieldAlt,
+  FaMapMarkedAlt,
+  FaRocket,
+  FaUsers,
+  FaGlobe,
+  FaLightbulb,
+} from 'react-icons/fa';
 
 const MotionBox = motion(Box);
 
 const features = [
   {
-    icon: FaHome,
-    title: 'Verified Properties',
-    description: 'Each listing is checked to ensure authenticity and updated documentation.',
+    title: 'Verified Listings',
+    icon: FaShieldAlt,
+    desc: 'Every property on ShiRa is manually verified to ensure you never deal with fake or misleading information.',
   },
   {
-    icon: FaSearchLocation,
-    title: 'Smart Search',
-    description: 'Use filters like location, price, and type to find the perfect match instantly.',
-  },
-  {
-    icon: FaHeadset,
-    title: '24/7 Support',
-    description: 'Got questions? We’re just a message or call away any time of the day.',
-  },
-  {
+    title: 'Interactive Map View',
     icon: FaMapMarkedAlt,
-    title: 'Interactive Maps',
-    description: 'Explore neighborhoods visually with our integrated Google Maps feature.',
+    desc: 'Easily explore neighborhoods, nearby amenities, and commute options with our integrated map view.',
   },
   {
-    icon: FaFilter,
-    title: 'Advanced Filters',
-    description: 'Narrow down results using multiple criteria including amenities and furnishing.',
+    title: 'Instant Notifications',
+    icon: FaRocket,
+    desc: 'Get real-time alerts on new listings, price drops, and favorite properties.',
   },
   {
-    icon: FaCheckCircle,
-    title: 'Instant Booking',
-    description: 'Secure your property tour with real-time booking and confirmation.',
+    title: 'Community Support',
+    icon: FaUsers,
+    desc: 'A user-friendly community where buyers and sellers help each other with reviews and tips.',
+  },
+  {
+    title: 'Global Reach',
+    icon: FaGlobe,
+    desc: 'Explore properties not just in your city, but across the globe. Ideal for NRIs and investors.',
+  },
+  {
+    title: 'AI-Powered Search',
+    icon: FaLightbulb,
+    desc: 'Our smart search engine learns your preferences and shows exactly what you need.',
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0 },
+};
+
 const Features = () => {
-  const cardBg = useColorModeValue('whiteAlpha.200', 'gray.700');
+  const bgColor = useColorModeValue('whiteAlpha.200', 'gray.700');
 
   return (
     <MotionBox
       py={12}
-      px={{ base: 4, md: 8 }}
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
+      px={{ base: 4, md: 10 }}
+      initial="hidden"
+      animate="show"
+      variants={containerVariants}
     >
-      <Heading
-        textAlign="center"
-        mb={10}
-        color="teal.300"
-        fontSize={{ base: '2xl', md: '3xl' }}
+      {/* Hero Section */}
+      <Stack
+        direction={{ base: 'column', md: 'row' }}
+        spacing={10}
+        align="center"
+        mb={12}
+        maxW="7xl"
+        mx="auto"
       >
-        Explore Our Features
-      </Heading>
+        <Box flex="1">
+          <Heading color="teal.300" fontSize={{ base: '2xl', md: '3xl' }} mb={4}>
+            Discover Features that Make Property Hunting Easy
+          </Heading>
+          <Text fontSize="lg" color="gray.300">
+            ShiRa offers a complete digital real estate experience with innovative tools and unmatched support.
+          </Text>
+        </Box>
+        <Image
+          src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914"
+          alt="Real estate"
+          borderRadius="lg"
+          boxShadow="xl"
+          maxW="400px"
+        />
+      </Stack>
 
-      <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8} maxW="6xl" mx="auto">
+      {/* Feature Grid with Animations */}
+      <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={8} maxW="7xl" mx="auto">
         {features.map((feature, index) => (
           <MotionBox
             key={index}
             p={6}
             borderRadius="lg"
-            bg={cardBg}
+            bg={bgColor}
             boxShadow="lg"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.4 }}
+            variants={cardVariants}
+            whileHover={{ scale: 1.03 }}
+            transition="0.4s ease"
           >
-            <VStack align="start" spacing={3}>
+            <Stack spacing={4} align="start">
               <Icon as={feature.icon} w={8} h={8} color="teal.300" />
-              <Heading size="md" color="white">
-                {feature.title}
-              </Heading>
-              <Text color="gray.300">{feature.description}</Text>
-            </VStack>
+              <Heading size="md" color="white">{feature.title}</Heading>
+              <Text color="gray.300">{feature.desc}</Text>
+            </Stack>
           </MotionBox>
         ))}
       </SimpleGrid>

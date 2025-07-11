@@ -1,28 +1,47 @@
-import { Button, Flex, Heading } from '@chakra-ui/react'
-import { useContext} from "react";
+import { Button, Flex, Heading, Text } from '@chakra-ui/react';
+import { useContext } from 'react';
 import { HouseContext } from '../../context/HouseContext';
 
-import LocationFilter from "./LocationFilter";
-import PriceFilter from "./PriceFilter";
-import PropertyTypeFilter from "./PropertyTypeFilter";
+import LocationFilter from './LocationFilter';
+import PriceFilter from './PriceFilter';
+import PropertyTypeFilter from './PropertyTypeFilter';
 
 const Search = () => {
-
-  const { searchHandler } = useContext(HouseContext);
+  const {
+    searchHandler,
+    resetFilters,
+    houses,
+    isLoading,
+  } = useContext(HouseContext);
 
   return (
-    <Flex my='3' direction='column' borderRadius='md' bg='green.50' boxShadow='md' p='5'>
+    <Flex my='3' direction='column' borderRadius='md' bg='teal.50' boxShadow='md' p='5'>
+      <Heading py='2' size={{ base: 'sm', md: 'md' }}>
+        Let’s Help You Find the Right Home
+      </Heading>
+      <Text fontSize='sm' color='gray.600'>
+        Find properties that fit your city, budget, and lifestyle
+      </Text>
 
-      <Heading py='2' size={{base: 'sm', md: 'md'}}>Search the price you looking for</Heading>
-
-      <Flex gap={{base: 3, md: 2}} direction={{base: 'column', md:'row'}} borderRadius='30'>
+      <Flex gap={{ base: 3, md: 2 }} direction={{ base: 'column', md: 'row' }} borderRadius='30' mt='4'>
         <LocationFilter />
         <PropertyTypeFilter />
         <PriceFilter />
-        <Button onClick={searchHandler} p={{base: 3, md: 2}} size="100%">Search</Button>
+        <Button onClick={searchHandler} px='6' colorScheme='teal' isLoading={isLoading}>
+          Search
+        </Button>
+        <Button variant='outline' onClick={resetFilters}>
+          Reset
+        </Button>
       </Flex>
-    </Flex>
-  )
-}
 
-export default Search
+      {houses.length === 0 && (
+        <Text mt='4' color='red.500' fontWeight='bold'>
+          No matching properties found. Please try other filters.
+        </Text>
+      )}
+    </Flex>
+  );
+};
+
+export default Search;

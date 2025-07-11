@@ -7,86 +7,136 @@ import {
   Stack,
   Box,
   Image,
-} from "@chakra-ui/react";
-import { BiPlus } from "react-icons/bi";
+} from '@chakra-ui/react';
+import { BiPlus } from 'react-icons/bi';
+import { motion } from 'framer-motion';
 
-import { bannerData } from "../data";
-import Apartment1Lg from "../assets/images/apartments/a1lg.png";
-import Apartment6Lg from "../assets/images/apartments/a6lg.png";
+import { bannerData } from '../data';
+import Apartment6Lg from '../assets/images/Banner2.png'; 
+import Apartment1Lg from '../assets/images/houseBanner.jpg';
+
+
+const MotionVStack = motion(VStack);
+const MotionBox = motion(Box);
+const MotionStack = motion(Stack);
 
 const Banner = () => {
   return (
-    <>
-      <Stack direction="row" my='6' overflow='hidden' >
-        <VStack
-          flexGrow='1'
-          px={{ sm: "6", md: "10" }}
-          py={{ sm: '8',  md: "16" }}
-          bg="green.500"
-          justify="center"
-          align="left"
-          borderRadius="xl"
-        >
-          <Heading fontSize={{ base: "xl", sm: "2xl", md: "3xl" }}>
-            Find Real Estate That Suits You.
-          </Heading>
-          <Text fontSize="sm">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum,
-            fugit illo? Delectus, voluptas unde quae cupiditate at amet beatae
-            totam!
-          </Text>
-          <Box pt="3" pb="8" >
-            <Button bg="blue.500" color="white" _hover={{ bg: "purple.600" }} >Get Started</Button>
-          </Box>
+    <MotionStack
+      direction={{ base: 'column', lg: 'row' }}
+      my={6}
+      overflow="hidden"
+      spacing={0}
+      initial="hidden"
+      animate="show"
+      variants={{
+        hidden: { opacity: 0 },
+        show: {
+          opacity: 1,
+          transition: {
+            staggerChildren: 0.3,
+          },
+        },
+      }}
+    >
+      {/* Left Text Section */}
+      <MotionVStack
+        flexGrow="1"
+        px={{ base: 6, md: 10 }}
+        py={{ base: 8, md: 16 }}
+        bgGradient="linear(to-r, gray.800, green.800)"
+        justify="center"
+        align="start"
+        borderRadius="xl"
+        spacing={6}
+        variants={{
+          hidden: { opacity: 0, x: -60 },
+          show: { opacity: 1, x: 0 },
+        }}
+        transition={{ duration: 0.8 }}
+        color="white"
+        boxShadow="xl"
+      >
+        <Heading fontSize={{ base: '2xl', sm: '3xl', md: '4xl' }} lineHeight="short">
+          Find a Home That Matches Your Dreams
+        </Heading>
 
-          <HStack spacing="3">
-            {bannerData.map((item, index) => (
-              <VStack
-                key={index}
-                bg="green.50"
-                p="4"
-                borderRadius="md"
-                align="left"
-                pr="3"
-              >
-                <HStack>
-                  <Text fontSize={{sm: '14px', md: 'md'}} fontWeight="extrabold" mr="-2">
-                    {Object.keys(item)}
-                  </Text>{" "}
-                  <BiPlus style={{ color: "gray" }} />
-                </HStack>
-                <Text fontSize={{sm: '12px', md: 'sm'}}>{Object.values(item)}</Text>
-              </VStack>
-            ))}
-          </HStack>
-        </VStack>
+        <Text fontSize={{ base: 'sm', md: 'md' }} maxW="600px">
+          Whether you're buying, renting, or investing — ShiRa helps you discover
+          trusted, verified properties with real-time insights and community support.
+        </Text>
 
-        <VStack justify='center'>
-          <Box h='100%' display={{ base: "none", lg: "block", xl:'none' }} >
-            <Image
-              src={Apartment1Lg}
-              alt="house"
-              h='100%'
-              objectFit='cover'
-            />
-          </Box>
-          <Box h='50%' display={{ base: "none", xl: "block" }}>
-            <Image
-              src={Apartment1Lg}
-              alt="house"
-              style={{height: '100%', width: '100%', objectFit: 'contain'}}
-            />
-          </Box>
-          <Box h='50%' display={{ base: "none", xl: "block" }}>
-            <Image
-              src={Apartment6Lg}
-              alt="house"
-              style={{height: '100%', width: '100%', objectFit: 'contain'}}
-            />
-          </Box>
-        </VStack>
-      </Stack>
-    </>
+        <Box>
+          <Button
+            bg="cyan.100"
+            color="teal.900"
+            _hover={{ bg: 'blue.200' }}
+            size="md"
+            px={6}
+            boxShadow="md"
+            onClick={() => window.scrollTo({ top: 600, behavior: 'smooth' })}
+          >
+            Start Exploring
+          </Button>
+        </Box>
+
+        {/* Quick Highlights */}
+        <HStack spacing={4} flexWrap="wrap">
+          {bannerData.map((item, index) => (
+            <MotionBox
+              key={index}
+              bg="whiteAlpha.300"
+              p={4}
+              borderRadius="md"
+              color="white"
+              minW="150px"
+              boxShadow="sm"
+              whileHover={{ scale: 1.05 }}
+              transition="all 0.3s ease"
+            >
+              <HStack>
+                <Text fontWeight="bold">{Object.keys(item)}</Text>
+                <BiPlus />
+              </HStack>
+              <Text fontSize="sm">{Object.values(item)}</Text>
+            </MotionBox>
+          ))}
+        </HStack>
+      </MotionVStack>
+
+      {/* Right Image Section */}
+      <MotionBox
+        display={{ base: 'none', lg: 'flex' }}
+        flexDir="column"
+        align="center"
+        justify="center"
+        px={4}
+        py={4}
+        variants={{
+          hidden: { opacity: 0, x: 60 },
+          show: { opacity: 1, x: 0 },
+        }}
+        transition={{ duration: 0.8 }}
+      >
+        <Image
+          src={Apartment1Lg}
+          alt="house"
+          borderRadius="lg"
+          boxShadow="2xl"
+          maxH="250px"
+          objectFit="cover"
+          mb={4}
+        />
+        <Image
+          src={Apartment6Lg}
+          alt="house"
+          borderRadius="lg"
+          boxShadow="2xl"
+          maxH="250px"
+          objectFit="cover"
+        />
+      </MotionBox>
+    </MotionStack>
   );
 };
 
