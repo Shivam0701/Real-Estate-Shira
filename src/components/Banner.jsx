@@ -17,12 +17,12 @@ import Apartment6Lg from "../assets/images/apartments/a6lg.png";
 const Banner = () => {
   return (
     <>
-      <Stack direction="row" my='6' overflow='hidden'>
+      <Stack direction="row" my='6' overflow='hidden' >
         <VStack
           flexGrow='1'
           px={{ sm: "6", md: "10" }}
           py={{ sm: '8',  md: "16" }}
-          bg="pink.100"
+          bg="green.500"
           justify="center"
           align="left"
           borderRadius="xl"
@@ -35,15 +35,15 @@ const Banner = () => {
             fugit illo? Delectus, voluptas unde quae cupiditate at amet beatae
             totam!
           </Text>
-          <Box pt="3" pb="8">
-            <Button>Get Started</Button>
+          <Box pt="3" pb="8" >
+            <Button bg="blue.500" color="white" _hover={{ bg: "purple.600" }} >Get Started</Button>
           </Box>
 
           <HStack spacing="3">
             {bannerData.map((item, index) => (
               <VStack
                 key={index}
-                bg="pink.200"
+                bg="green.50"
                 p="4"
                 borderRadius="md"
                 align="left"
@@ -53,7 +53,7 @@ const Banner = () => {
                   <Text fontSize={{sm: '14px', md: 'md'}} fontWeight="extrabold" mr="-2">
                     {Object.keys(item)}
                   </Text>{" "}
-                  <BiPlus style={{ color: "#ED64A6" }} />
+                  <BiPlus style={{ color: "gray" }} />
                 </HStack>
                 <Text fontSize={{sm: '12px', md: 'sm'}}>{Object.values(item)}</Text>
               </VStack>

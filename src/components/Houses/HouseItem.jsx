@@ -13,22 +13,22 @@ import { BiBed, BiBath, BiArea } from "react-icons/bi";
 const HouseItem = ({ house }) => {
   return (
     <Flex justify='center' align='center'>
-        <Stack justify='center' width="300px" bg="white" boxShadow="xl" borderRadius="xl">
+        <Stack justify='center' width="300px" backgroundColor='green.100' boxShadow="xl" borderRadius="xl">
         <Image src={house.imageLg} h='170' alt='houses' />
 
         <VStack p='4' align='left'>
-            <Text mt="-1" fontWeight="extrabold" fontSize="18px" color="pink.500">
+            <Text mt="-1" fontWeight="extrabold" fontSize="18px" color="teal.900">
             Rs.{house.price}
-            <span style={{ fontSize: 12, color: "grey", fontWeight: "normal" }}>
+            <span style={{ fontSize: 12, color: "gray.700", fontWeight: "normal" }}>
                 /month
             </span>
             </Text>
 
-            <Heading fontSize="24px" letterSpacing="tight">
+            <Heading fontSize="24px" letterSpacing="tight" color="cyan.800">
             {house.name}
             </Heading>
 
-            <Text fontSize="13px" color="grey">
+            <Text fontSize="13px" color="gray.700">
              {house.address}
             </Text>
 
@@ -36,17 +36,17 @@ const HouseItem = ({ house }) => {
 
             <HStack spacing="5">
             <HStack>
-                <BiBed style={{ color: "#D53F8C" }} />
+                <BiBed style={{ color: "blue" }} />
                 <Text fontSize="12px">{house.bedrooms}</Text>
             </HStack>
 
             <HStack>
-                <BiBath style={{ color: "#D53F8C" }} />
+                <BiBath style={{ color: "blue" }} />
                 <Text fontSize="12px">{house.bathrooms}</Text>
             </HStack>
 
             <HStack>
-                <BiArea style={{ color: "#D53F8C" }} />
+                <BiArea style={{ color: "blue" }} />
                 <Text fontSize="12px">{house.surface}</Text>
             </HStack>
             </HStack>

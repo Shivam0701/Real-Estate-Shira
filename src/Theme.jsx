@@ -17,25 +17,32 @@ export const theme = extendTheme({
   styles: {
     global: {
         body: {
-            bg: 'pink.50'
+            bg: 'gray.900'
         }
     }
   },
   components: {
     Button: {
+      baseStyle: {
+      _hover: {
+        color: 'purple',
+        textDecoration:'underline'
+      }
+    },
       defaultProps: {
-        colorScheme: 'pink', // default is gray
+        colorScheme: 'green'
+        
       }
     },
     Input:{
       defaultProps: {
-        focusBorderColor: 'pink.500'
+        focusBorderColor: 'pink'
       }
     },
     Select:{
       baseStyle: {
         _focus: {
-          borderColor: 'pink.500'
+          borderColor: 'blue'
         }
       }
     },

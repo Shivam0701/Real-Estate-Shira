@@ -1,8 +1,8 @@
-import { Textarea, Image, VStack, HStack, Box, Text, Input, Button } from '@chakra-ui/react'
+import { Textarea, Image, VStack, HStack, Box, Text, Input, Button, color } from '@chakra-ui/react'
 
 const Form = ({searchedHouse}) => {
   return (
-    <VStack border='1px' borderColor='pink.100' boxShadow='md' px='5' py='6'>
+    <VStack border='1px' borderColor='red' boxShadow='md' px='5' py='6'>
         <HStack>
             <Image borderRadius='full' boxSize='75px' src={searchedHouse.agent.image} />
             <Box>

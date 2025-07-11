@@ -1,40 +1,81 @@
-import { Flex, Heading, Button,  HStack, chakra, ButtonGroup, useBreakpointValue, Divider } from '@chakra-ui/react';
+import {
+  Flex,
+  Heading,
+  Button,
+  HStack,
+  chakra,
+  ButtonGroup,
+  useBreakpointValue,
+} from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import NavMobile from './NavMobile';
 
 const Header = () => {
-  const isDesktop = useBreakpointValue({ base: false, lg: true })
+  const isDesktop = useBreakpointValue({ base: false, lg: true });
+
+  // Correct route paths here
+  const navLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'Features', path: '/features' },
+    { name: 'About Us', path: '/aboutUs' }, 
+  ];
 
   return (
-    <chakra.header id="header" borderBottom='1px solid rgb(0,0,0,0.3)'>
-      <Flex w='100%' py='5' align='center' justify='space-between'>
-        <Link to='/'>
-          <Heading fontSize='3xl' color='pink.700'>ShiRa.</Heading>
+    <chakra.header id="header" borderBottom="1px solid" borderColor="white">
+      <Flex w="100%" py="5" align="center" justify="space-between">
+        {/* Logo / Brand */}
+        <Link to="/">
+          <Heading fontSize="3xl" fontFamily="cursive" color="gray.50">
+            ShiRa
+          </Heading>
         </Link>
-        {
-          isDesktop ? (
+
+        {/* Desktop Nav */}
+        {isDesktop ? (
           <>
-            <ButtonGroup as='nav' variant='link' spacing='5'>
-                {
-                  ['Home', 'Features', 'About Us'].map((item)=>(
-                    <Button fontSize='16px' key={item}>{item}</Button>
-                    ))
-                }
+            <ButtonGroup as="nav" variant="link" spacing="5">
+              {navLinks.map(({ name, path }) => (
+                <Button
+                  key={name}
+                  as={Link}
+                  to={path}
+                  fontSize="16px"
+                  color="gray.100"
+                  _hover={{ textDecoration: 'underline', color: 'white' }}
+                >
+                  {name}
+                </Button>
+              ))}
             </ButtonGroup>
 
-            <HStack>
-              <Button size='sm' variant='solid'>Contact</Button>
-              <Button size='sm' variant='outline'>Sign up</Button>
+            {/* Right Buttons */}
+            <HStack spacing="3">
+              <Button
+                as={Link}
+                to="/contact"
+                size="sm"
+                variant="solid"
+                colorScheme="blue"
+              >
+                Contact
+              </Button>
+              <Button
+                as={Link}
+                to="/signup"
+                size="sm"
+                variant="outline"
+                colorScheme="green"
+              >
+                Sign up
+              </Button>
             </HStack>
           </>
-          ) : (
-            <NavMobile />
-          )
-        }
+        ) : (
+          <NavMobile />
+        )}
       </Flex>
-      {/* <Divider color='pink.800' w={}='20px' />  */}
     </chakra.header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

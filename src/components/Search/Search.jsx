@@ -11,7 +11,7 @@ const Search = () => {
   const { searchHandler } = useContext(HouseContext);
 
   return (
-    <Flex my='3' direction='column' borderRadius='md' bg='#fff' boxShadow='md' p='5'>
+    <Flex my='3' direction='column' borderRadius='md' bg='green.50' boxShadow='md' p='5'>
 
       <Heading py='2' size={{base: 'sm', md: 'md'}}>Search the price you looking for</Heading>
 

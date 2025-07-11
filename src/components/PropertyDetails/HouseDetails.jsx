@@ -23,11 +23,11 @@ const HouseDetails = () => {
         </Box>
         
         <HStack>
-          <Text px='3' borderRadius='full' bg='green.300'>{searchedHouse.type}</Text>
-          <Text px='3' borderRadius='full' bg='purple.300'>{searchedHouse.country}</Text>
+          <Text px='3' borderRadius='full' bg='teal.300'>{searchedHouse.type}</Text>
+          <Text px='3' borderRadius='full' bg='blue.200'>{searchedHouse.country}</Text>
         </HStack>
 
-        <Text fontWeight="extrabold" fontSize="20px" color="pink.500">Rs. {searchedHouse.price}</Text>
+        <Text fontWeight="extrabold" fontSize="20px" color="red">Rs. {searchedHouse.price}</Text>
       </Stack>
 
       <Stack direction={{base:'column', lg: 'row'}} gap='6' align='flex-start'>
@@ -36,17 +36,17 @@ const HouseDetails = () => {
 
           <Stack py='10px' spacing={{sm: '3', md: '5'}} direction={{base: 'column', md: 'row'}}>
             <HStack>
-                <BiBed style={{ color: "#D53F8C" }} />
+                <BiBed style={{ color: "blue" }} />
                 <Text fontSize="14px">{searchedHouse.bedrooms} Bedrooms</Text>
             </HStack>
 
             <HStack>
-                <BiBath style={{ color: "#D53F8C" }} />
+                <BiBath style={{ color: "blue" }} />
                 <Text fontSize="14px">{searchedHouse.bathrooms} Bathrooms</Text>
             </HStack>
 
             <HStack>
-                <BiArea style={{ color: "#D53F8C" }} />
+                <BiArea style={{ color: "blue" }} />
                 <Text fontSize="14px">{searchedHouse.surface}</Text>
             </HStack>
           </Stack>

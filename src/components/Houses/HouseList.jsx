@@ -11,7 +11,7 @@ const HouseList = () => {
   if(isLoading){
     return (
       <Center>
-        <Spinner align='center' color='pink.500' />
+        <Spinner align='center' color='blue' />
       </Center>
     )
   }
