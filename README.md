@@ -77,9 +77,7 @@ Made with 💙, ☕ and a lot of console.log()s
 
 ## 📬 Contact Me
 
-🔗 [LinkedIn](https://www.linkedin.com/in/shivam-raj-0701sr/)
-
-🐙 [GitHub](https://github.com/Shivam0701)
-
-📧 [Email Me](mailto:shivamraj.0110@gmail.com)
+- 🔗 [LinkedIn](https://www.linkedin.com/in/shivam-raj-0701sr/)
+- 🐙 [GitHub](https://github.com/Shivam0701)
+- 📧 [Email Me](mailto:shivamraj.0110@gmail.com)
 
