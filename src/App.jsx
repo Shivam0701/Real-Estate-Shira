@@ -24,15 +24,17 @@ const App = () => {
         {/* Main content area expands to fill space between Header and Footer */}
         <Box as="main" flex="1" px={{ base: 4, md: 10 }} w="100%">
           <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='property-details' element={<PropertyDetails />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/property-details" element={<PropertyDetails />}>
               <Route path=":propertyId" element={<HouseDetails />} />
             </Route>
-            <Route path='/contact' element={<Contact />} />
-            <Route path='/signup' element={<Signup />} />
-            <Route path='/login' element={<Login />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/features" element={<Features />} />
-            <Route path='/aboutUs' element={<AboutUs />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            
+            {/* Fallback Route */}
             <Route
               path="*"
               element={
