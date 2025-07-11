@@ -42,7 +42,7 @@ bash
 Copy
 Edit
 npm run dev
-```
+
 🗂️ Project Structure
 css
 Copy
@@ -78,6 +78,7 @@ Want to add login/signup backend or city integration? Let's collaborate!
 👨‍💻 Developed by
 Shivam Raj
 Made with 💙, ☕, and a lot of console.log()s
+```
 
 ## 📬 Contact Me
 
@@ -85,7 +86,7 @@ Made with 💙, ☕, and a lot of console.log()s
 - 🐙 [GitHub](https://github.com/Shivam0701)
 - 📧 [Email Me](mailto:shivamraj.0110@gmail.com)
 
-
+```
 📸 UI Sneak Peek (Optional)
 You can add screenshots here using the markdown image tag
 
