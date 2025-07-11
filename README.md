@@ -1,79 +1,83 @@
-# 🏠 ShiRa – Real Estate Property Finder
+# 🏠 Real Estate - ShiRa
 
-Welcome to **ShiRa**, your one-stop platform for finding beautiful homes across India 🇮🇳. Whether you're looking to rent, buy, or just explore, ShiRa brings you a clean, fast, and modern interface to browse properties filtered by city, price range, and type.
-
----
-
-## 🔥 Features
-
-- 🌆 Filter properties by **City**, **Price**, and **Property Type**
-- 🖼️ Interactive **property cards** with smooth **hover animations**
-- 🔍 Detailed **property view pages**
-- 📱 Fully responsive for **mobile & desktop**
-- ⚡ Built with **React + Chakra UI + Vite**
-- 🧠 State managed with **Context API**
-- 🌐 Deployed on **Vercel**
+A sleek and modern Real Estate web app built with **React**, **Chakra UI**, and **Framer Motion**, allowing users to explore properties across Indian cities with ease. Fully responsive and deployed live on **Vercel**.
 
 ---
 
-## ✨ Demo
-
-> 🌍 [Live Demo on Vercel](https://real-estate-shira.vercel.app/)
+## 🌍 [Live Demo on Vercel](https://real-estate-shira.vercel.app/)
 
 ---
 
-## 🧱 Tech Stack
+## 🧰 Tech Stack
 
-| Technology    | Usage                        |
-| ------------- | ---------------------------- |
-| React         | Frontend Framework           |
-| Chakra UI     | UI Components and Styling    |
-| React Router  | Client-side Routing          |
-| Context API   | Global State Management      |
-| Framer Motion | Animations                   |
-| Vite          | Lightning Fast Build Tool    |
-| Vercel        | Deployment Platform          |
+| Technology     | Usage                          |
+| -------------  | ------------------------------ |
+| React          | Frontend Framework             |
+| Chakra UI      | UI Components and Styling      |
+| React Router   | Client-side Routing            |
+| Context API    | Global State Management        |
+| Framer Motion  | Animations                     |
+| Vite           | Lightning Fast Build Tool      |
+| Vercel         | Deployment Platform            |
 
 ---
 
 ## 🚀 Getting Started
 
+### ⚙️ Clone the project
 ```bash
-# Clone the project
 git clone https://github.com/Shivam0701/Real-Estate-Shira.git
-
-# Go inside the project
+📂 Go into the project directory
+bash
+Copy
+Edit
 cd Real-Estate-Shira
-
-# Install dependencies
+📦 Install dependencies
+bash
+Copy
+Edit
 npm install
-
-# Start development server
+🧪 Start the development server
+bash
+Copy
+Edit
 npm run dev
-
-
-
-📁 Project Structure
+```
+🗂️ Project Structure
 css
 Copy
 Edit
 src/
+│
 ├── components/
 │   ├── Header/
 │   ├── Footer/
-│   └── PropertyDetails/
+│   ├── PropertyDetails/
+│
 ├── context/
+│   └── HouseContext.jsx
+│
 ├── routes/
+│   ├── Home.jsx
+│   ├── AboutUs.jsx
+│   ├── Features.jsx
+│   ├── Contact.jsx
+│   ├── Signup.jsx
+│   ├── Login.jsx
+│
 ├── data/
-└── App.jsx
+│   └── housesData.jsx
+│
+├── App.jsx
+└── main.jsx
 
 🤝 Contributing
-Feel free to fork, star ⭐ and contribute to this project!
-Want to add login/signup backend or map integration? Let's collaborate!
+Feel free to fork, star ⭐, and contribute to this project!
+Want to add login/signup backend or city integration? Let's collaborate!
 
-🧑‍💻 Developed By
+👨‍💻 Developed by
 Shivam Raj
-Made with 💙, ☕ and a lot of console.log()s
+Made with 💙, ☕, and a lot of console.log()s
 
 ## 📬 Contact Me
 
@@ -81,3 +85,13 @@ Made with 💙, ☕ and a lot of console.log()s
 - 🐙 [GitHub](https://github.com/Shivam0701)
 - 📧 [Email Me](mailto:shivamraj.0110@gmail.com)
 
+
+📸 UI Sneak Peek (Optional)
+You can add screenshots here using the markdown image tag
+
+md
+Copy
+Edit
+![Homepage Screenshot](./src/assets/images/home.png)
+📄 License
+This project is open-source and available under the MIT License.
