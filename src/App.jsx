@@ -21,20 +21,22 @@ const App = () => {
         {/* Header stays on top */}
         <Header />
 
-        {/* Main content area expands to fill space between Header and Footer */}
+        {/* Main content area */}
         <Box as="main" flex="1" px={{ base: 4, md: 10 }} w="100%">
           <Routes>
             <Route path="/" element={<Home />} />
+            
             <Route path="/property-details" element={<PropertyDetails />}>
               <Route path=":propertyId" element={<HouseDetails />} />
             </Route>
+
+            <Route path="/features" element={<Features />} />
+            <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/features" element={<Features />} />
-            <Route path="/about-us" element={<AboutUs />} />
-            
-            {/* Fallback Route */}
+
+            {/* Fallback for undefined routes */}
             <Route
               path="*"
               element={
